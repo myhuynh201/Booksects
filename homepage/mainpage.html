@@ -1,0 +1,74 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+        <style type="text/css">
+            body{ font: 14px sans-serif; background-color:#fedcbe;}
+            .wrapper{ width: 350px; padding: 20px; }
+            p{ padding: 10px; margin: 10px 10px; }
+            p.footer {margin:0; font-size:0.8em; padding: 0px; text-align:center;}
+            h3{ padding 15px; text-decoration: underline; font-weight: bold;}
+            .center{ display: block; text-align: center; margin: 0 auto; width: 100%; padding: 20px;}
+            span{font-size: 1.2em; font-weight:bold; text-decoration:underline;}
+            h1{border:5px white solid; border-radius: 30px;}
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center; font-weight:bold">
+            BOOKSECTS, A LIBRARY DATABASE
+        </h1>
+        <div class = "center">
+            <img src="images/cover.png" alt="Booksects Image" width=80% height="400">
+        </div>
+        <h3>OVERVIEW:</h3>
+        <p>
+            This project is intended to create a Library database system for users in a College. This project intends to create a database
+            where students are able to register in the system, search for books and check them out. Additionally, our database should also allow
+            Librarians to create accounts here and manage the database. They can perform the same functionalities as the student but they are given some additional
+            functionalities as well. Overall, our goal in this project was to replicate a real life library database where students and librarians can interact with
+            our database and register as users.
+        </p>
+        <h3>DESCRIPTION:</h3>
+        <p>
+            Our library database consists of 4 entities in total: </p>
+            <ul>
+                <li><span>BOOK:</span> We have a BOOK entity. The book entity primarily stores information on each book, e.g. Title, author
+                    , release date, ISBN etc. Every tuple in this entry denotes a singular book with all of its important information.</li>
+                <li><span>MEMBER:</span> We have a MEMBER entity. The member entity stores information on each member such as their name, DOB, Member ID,
+                    username, password and if they are a student or a librarian etc. Every tuple in this entry denotes one unique user with all their
+                    identifying information.</li>
+                <li><span>CHECKOUT_STATUS</span> This entity contains information on every book that has been checked out to different users.
+                    Each tuple in this entity represents 1 book that has been checked out to a user. We have different attributes that help us
+                    identify who checked out which book. It contains a foreign key which references MemberID in entity MEMBER, and another foreign
+                    key which references ISBN in BOOK. Collectively, they help create 1 entire checkout of a book. There are other attributes that provide
+                    more information on the checkout status such as checkout_date which represents the day the book was checked out and due_date which
+                    represents the day the book was/is due. These are just some attributes among others.</li>
+                <li><span>VIEWS</span> This entity keeps information on each user's interaction with the books. This entity is relatively simple but it references
+                    the same two foreign keys that CHECKOUT_STATUS references, namely MemberID from entity MEMBER and ISBN from entity BOOK. Each tuple in VIEWS
+                    represents an access to any of the book and information regarding that access. Each tuple can tell us accessor's MemberID and ISBN of the book,
+                    the date they first accessed that book, the day they last accessed that book and the page number they last accessed. This also means that there might
+                    be members in MEMBER that do not appear here, for example if a user creates an account but never accesses any book at all.</li>
+            </ul>
+        <h3>MEMBERS' CONTACT INFORMATION</h3>
+        <p>
+            This project has been implemented by the following 4 members. Their email has also been added next to their name.</p>
+        <ol>
+                <li>Logan Crawford, Email: crawfl5@uw.edu</li>
+                <li>John Reiten, Email: jjr399@uw.edu</li>
+                <li>My Huynh, Email: duyen201@uw.edu</li>
+                <li>Ali Iftakhar, Email: alii9@uw.edu</li>
+        </ol>
+        
+        <button onclick="location.href = '../login.php';" id="myButton">Go Back To Login</button>
+        <p class="footer">
+            TCSS 445
+        </p>
+        <p class="footer">
+            Fall 2020
+        </p>
+        <p class="footer">
+            Project Phase III
+        </p>
+    </body>
+</html>
